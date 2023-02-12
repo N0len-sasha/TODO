@@ -7,13 +7,12 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.example.myapplication.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.authorization_activity)
-        val button = findViewById<Button>(R.id.Enter)
+        setContentView(R.layout.activity_main)
+/*        val button = findViewById<Button>(R.id.Enter)
         button.setOnClickListener {
             val clogin: String = "1"
             val cpassword: String = "1"
@@ -30,6 +29,6 @@ class MainActivity : AppCompatActivity() {
                 check.setText("«Вы ошиблись в логине или пароле»")
                 check.setTextColor(Color.parseColor("#960018"))
             }
-        }
+        }*/
     }
 }

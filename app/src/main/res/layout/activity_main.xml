@@ -3,15 +3,129 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <!--Нижние кнопки активности-->
+
+    <!--Основные разделы активности-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_weight="10"
         android:background="@color/gray">
+    <!--Пример одного из разделов-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/main1">
+            </ImageView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:backgroundTint="@color/gray"
+                android:text="Мои планы"
+                android:textColor="@color/black"
+                style="?android:attr/borderlessButtonStyle">
+            </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="count"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/main1">
+            </ImageView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:backgroundTint="@color/gray"
+                android:text="Мои планы"
+                android:textColor="@color/black"
+                style="?android:attr/borderlessButtonStyle">
+            </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="count"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/main1">
+            </ImageView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:backgroundTint="@color/gray"
+                android:text="Мои планы"
+                android:textColor="@color/black"
+                style="?android:attr/borderlessButtonStyle">
+            </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="count"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/main1">
+            </ImageView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:backgroundTint="@color/gray"
+                android:text="Мои планы"
+                android:textColor="@color/black"
+                style="?android:attr/borderlessButtonStyle">
+            </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="count"
+                android:gravity="center">
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
-    <!--Основные разделы активности-->
+    <!--Нижние кнопки активности-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="17dp"
