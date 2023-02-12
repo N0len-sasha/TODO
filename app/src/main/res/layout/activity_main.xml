@@ -1,57 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/Login"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:background="@color/gray"
-        android:hint="Enter your login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="199dp"
-        ></EditText>
-
-    <EditText
-        android:id="@+id/Password"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/gray"
-        android:hint="Enter your password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login"
-        ></EditText>
-
-    <Button
-        android:id="@+id/Enter"
-        android:layout_width="158dp"
-        android:layout_height="54dp"
-        android:backgroundTint="@color/Enter"
-        android:text="Enter"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658"
-        />
-
-    <TextView
-        android:id="@+id/Check"
+    android:orientation="vertical">
+    <!--Нижние кнопки активности-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:gravity="center"
-        >
-    </TextView>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="10"
+        android:background="@color/gray">
+    </LinearLayout>
+    <!--Основные разделы активности-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_weight="1"
+        android:background="@color/Green"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/Green"
+            android:src="@drawable/plus_button"
+            ></ImageButton>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/Green"
+            android:src="@drawable/home_button"></ImageButton>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/Green"
+            android:src="@drawable/profile_button"></ImageButton>
+    </LinearLayout>
+</LinearLayout>
