@@ -1,150 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <!--Основные разделы активности-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:background="@color/gray"
-        android:orientation="vertical">
-        <!--Пример одного из разделов-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/main1"></ImageView>
-
-            <Button
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="89dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:backgroundTint="@color/gray"
-                android:gravity="left|center"
-                android:text="Мой день"
-                android:textColor="@color/black"></Button>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="count"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/main1"></ImageView>
-
-            <Button
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:backgroundTint="@color/gray"
-                android:gravity="left|center"
-                android:text="Важное"
-                android:textColor="@color/black"></Button>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="count"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/main1"></ImageView>
-
-            <Button
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="91dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:backgroundTint="@color/gray"
-                android:gravity="left|center"
-                android:text="Запланировано"
-                android:textColor="@color/black"></Button>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="count"></TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/main1"></ImageView>
-
-            <Button
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:backgroundTint="@color/gray"
-                android:gravity="left|center"
-                android:text="Задачи"
-                android:textColor="@color/black"></Button>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="count"></TextView>
-        </LinearLayout>
-    </LinearLayout>
     <!--Нижние кнопки активности-->
-    <LinearLayout
+    <TextView
+        android:id="@+id/my_day"
         android:layout_width="match_parent"
-        android:layout_height="17dp"
-        android:layout_weight="1"
-        android:background="@color/gray"
-        android:orientation="horizontal">
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/my_day"
+        android:text="My Day"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"></TextView>
+
+    <TextView
+        android:id="@+id/favorites"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/favorites"
+        android:text="Favorites"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_day"
+        android:clickable="true"></TextView>
+
+    <TextView
+        android:id="@+id/completed"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/completed"
+        android:text="Completed"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favorites"></TextView>
+
+    <LinearLayout
+        android:id="@+id/Bottom_Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/Green"
             android:src="@drawable/plus_button"></ImageButton>
@@ -152,7 +70,6 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/Green"
             android:src="@drawable/home_button"></ImageButton>
@@ -160,9 +77,9 @@
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/Green"
             android:src="@drawable/profile_button"></ImageButton>
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
