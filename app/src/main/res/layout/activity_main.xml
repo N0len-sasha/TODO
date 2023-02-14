@@ -3,60 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
 
     <!--Нижние кнопки активности-->
-    <TextView
-        android:id="@+id/my_day"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/my_day"
-        android:text="My Day"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:clickable="true"></TextView>
 
-    <TextView
-        android:id="@+id/favorites"
+    <Button
+        android:id="@+id/but_my_day"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/favorites"
-        android:text="Favorites"
-        android:gravity="center"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/anonymous_pro"
+        android:gravity="left"
+        android:text="# my day"
+        android:textAllCaps="false"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_day"
-        android:clickable="true"></TextView>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/completed"
+    <Button
+        android:id="@+id/but_favorities"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/completed"
-        android:text="Completed"
-        android:gravity="center"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/anonymous_pro"
+        android:gravity="left"
+        android:text="# favorities"
+        android:textAllCaps="false"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favorites"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/but_my_day" />
+
+    <Button
+        android:id="@+id/but_completed"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/anonymous_pro"
+        android:gravity="left"
+        android:text="# completed"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/but_favorities" />
 
     <LinearLayout
         android:id="@+id/Bottom_Buttons"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@color/white"
+        android:background="@color/black"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -64,22 +73,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Green"
-            android:src="@drawable/plus_button"></ImageButton>
+            android:backgroundTint="@color/black"
+            android:src="@drawable/plus"></ImageButton>
 
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Green"
-            android:src="@drawable/home_button"></ImageButton>
+            android:backgroundTint="@color/black"
+            android:src="@drawable/home"></ImageButton>
 
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@color/Green"
-            android:src="@drawable/profile_button"></ImageButton>
+            android:backgroundTint="@color/black"
+            android:src="@drawable/profile"></ImageButton>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
