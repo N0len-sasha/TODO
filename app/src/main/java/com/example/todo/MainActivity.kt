@@ -12,7 +12,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.authorization_activity)
+        setContentView(R.layout.registration_activity)
 /*        val button = findViewById<Button>(R.id.Enter)
         button.setOnClickListener {
             val clogin: String = "1"
