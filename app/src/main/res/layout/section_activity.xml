@@ -40,7 +40,7 @@
                 android:gravity="center|left"
                 android:text="task 1"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +67,7 @@
                 android:gravity="center|left"
                 android:text="task 2"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -90,7 +90,7 @@
             android:gravity="center"
             android:text="MY DAY"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -101,7 +101,7 @@
             android:gravity="center"
             android:text="date//Feb 17"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
