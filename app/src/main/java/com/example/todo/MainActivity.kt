@@ -2,12 +2,19 @@ package com.example.todo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.MenuItem.OnMenuItemClickListener
+import android.view.View
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo.databinding.MainScreenBinding
+import com.example.todo.databinding.SectionItemBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
 
     private lateinit var binding: MainScreenBinding
+    private lateinit var item_binding: SectionItemBinding
     private val sectionAdapter = SectionAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,5 +45,15 @@ class MainActivity : AppCompatActivity() {
                 check.setTextColor(Color.parseColor("#960018"))
             }
         }*/
+    }
+    public fun showMore(view: View){
+        val popup = PopupMenu(this, view)
+        popup.setOnMenuItemClickListener (this)
+        popup.inflate(R.menu.more_menu)
+        popup.show()
+    }
+
+    override fun onMenuItemClick(p0: MenuItem?): Boolean {
+        return false
     }
 }

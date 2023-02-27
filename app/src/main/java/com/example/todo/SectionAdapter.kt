@@ -29,9 +29,6 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
         notifyItemInserted(sections.size - 1)
     }
 
-    private fun showMore(view: View){
-        val showMore = 
-    }
     inner class SectionViewHolder(private val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(section: Section){
             binding.name.text= section.section_name
