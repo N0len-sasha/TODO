@@ -54,6 +54,11 @@ class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
     }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.up -> sectionAdapter.moveSectionUp(3)
+            R.id.down -> sectionAdapter.moveSectionDown(2)
+            R.id.delete -> sectionAdapter.removeSection(1)
+        }
         return false
     }
 
