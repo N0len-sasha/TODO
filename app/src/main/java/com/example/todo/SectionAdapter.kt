@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.SectionItemBinding
 
+
 class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
 
     private val sections = mutableListOf<Section>()
@@ -28,16 +29,9 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
         sections.add(section)
         notifyItemInserted(sections.size - 1)
     }
-
     inner class SectionViewHolder(private val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(section: Section){
             binding.name.text= section.section_name
         }
-    }
-
-    companion object {
-        private const val MOVE_UP = 1
-        private const val MOVE_DOWN = 2
-        private const val REMOVE = 3
     }
 }

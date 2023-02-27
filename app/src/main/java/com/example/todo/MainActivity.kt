@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.MenuItem.OnMenuItemClickListener
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo.databinding.MainScreenBinding
 import com.example.todo.databinding.SectionItemBinding
@@ -14,7 +15,6 @@ import com.example.todo.databinding.SectionItemBinding
 class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
 
     private lateinit var binding: MainScreenBinding
-    private lateinit var item_binding: SectionItemBinding
     private val sectionAdapter = SectionAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +53,8 @@ class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
         popup.show()
     }
 
-    override fun onMenuItemClick(p0: MenuItem?): Boolean {
+    override fun onMenuItemClick(item: MenuItem?): Boolean {
         return false
     }
+
 }
