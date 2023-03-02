@@ -1,18 +1,32 @@
 package com.example.todo
 
-import android.graphics.Color
-import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.MenuItem.OnMenuItemClickListener
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.todo.databinding.MainScreenBinding
+import com.example.todo.databinding.SectionItemBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
+
+    private lateinit var binding: MainScreenBinding
+    private val sectionAdapter = SectionAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.section_activity)
+        binding = MainScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.rcView.layoutManager = LinearLayoutManager(this)
+        binding.rcView.adapter = sectionAdapter
+
+        binding.btAdd.setOnClickListener {
+            sectionAdapter.addSection(Section("Новая задача"))
+        }
 /*        val button = findViewById<Button>(R.id.Enter)
         button.setOnClickListener {
             val clogin: String = "1"
@@ -32,4 +46,20 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
     }
+    public fun showMore(view: View){
+        val popup = PopupMenu(this, view)
+        popup.setOnMenuItemClickListener (this)
+        popup.inflate(R.menu.more_menu)
+        popup.show()
+    }
+
+    override fun onMenuItemClick(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.up -> sectionAdapter.moveSectionUp(3)
+            R.id.down -> sectionAdapter.moveSectionDown(2)
+            R.id.delete -> sectionAdapter.removeSection(1)
+        }
+        return false
+    }
+
 }
