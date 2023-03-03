@@ -9,6 +9,7 @@ import com.example.todo.databinding.SectionItemBinding
 
 class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
     private val sections = mutableListOf<Section>()
+//  var currentPosition = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -20,6 +21,10 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
         val section = sections[position]
         holder.bind(section)
+
+//        holder.itemView.setOnClickListener{
+//            setCurrentPosition(position)
+//        }
     }
 
     override fun getItemCount() = sections.size
@@ -48,11 +53,9 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
             notifyItemMoved(position , position + 1)
         }
     }
-
-    fun getItemId(view: View): Int {
-        val section = view.tag as Section
-        return sections.indexOfFirst { section.section_name == it.section_name }
-    }
+//    private fun setCurrentPosition(position: Int){
+//        currentPosition = position
+//    }
     inner class SectionViewHolder(private val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(section: Section){
             binding.name.text= section.section_name

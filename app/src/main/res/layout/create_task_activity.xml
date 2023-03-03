@@ -27,7 +27,6 @@
                 android:id="@+id/radioButton4"
                 android:layout_width="93dp"
                 android:layout_height="match_parent"
-                android:layout_weight=""
                 android:button="@drawable/checkbox_selector"
                 android:buttonTint="@color/white"
                 android:scaleX="0.60"

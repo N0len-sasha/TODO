@@ -1,5 +1,6 @@
 package com.example.todo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.todo.databinding.AuthorizationActivityBinding
 import com.example.todo.databinding.MainScreenBinding
 import com.example.todo.databinding.SectionItemBinding
 
@@ -19,32 +21,16 @@ class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_screen)
         binding = MainScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         binding.rcView.layoutManager = LinearLayoutManager(this)
         binding.rcView.adapter = sectionAdapter
 
         binding.btAdd.setOnClickListener {
             sectionAdapter.addSection(Section("Новая задача"))
         }
-/*        val button = findViewById<Button>(R.id.Enter)
-        button.setOnClickListener {
-            val clogin: String = "1"
-            val cpassword: String = "1"
-            val nothing: String = ""
-            val login = findViewById<EditText>(R.id.Login)
-            val password = findViewById<EditText>(R.id.Password)
-            val check = findViewById<TextView>(R.id.Check)
-            if ((login.text.toString() == clogin) && (password.text.toString() == cpassword)) {
-                check.setText("«Верно»")
-                check.setTextColor(Color.parseColor("#adff2f"))
-            } else {
-                login.setText(nothing)
-                password.setText(nothing)
-                check.setText("«Вы ошиблись в логине или пароле»")
-                check.setTextColor(Color.parseColor("#960018"))
-            }
-        }*/
+
+
     }
     public fun showMore(view: View){
         val popup = PopupMenu(this, view)
@@ -55,7 +41,10 @@ class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.up -> sectionAdapter.moveSectionUp(3)
+            R.id.up -> {
+//                val currentPosition = sectionAdapter.currentPosition // получаем позицию текущего элемента
+                sectionAdapter.moveSectionUp(3) // перемещаем элемент на одну строку вверх
+            }
             R.id.down -> sectionAdapter.moveSectionDown(2)
             R.id.delete -> sectionAdapter.removeSection(1)
         }
