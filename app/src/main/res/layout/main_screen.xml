@@ -38,6 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/black"
+            android:onClick="showProfile"
             android:src="@drawable/home"></ImageButton>
 
         <ImageButton

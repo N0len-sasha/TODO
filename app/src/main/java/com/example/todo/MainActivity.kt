@@ -3,16 +3,12 @@ package com.example.todo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.view.MenuItem.OnMenuItemClickListener
 import android.view.View
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.todo.databinding.AuthorizationActivityBinding
 import com.example.todo.databinding.MainScreenBinding
-import com.example.todo.databinding.SectionItemBinding
+
 
 class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
 
@@ -39,6 +35,10 @@ class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
         popup.show()
     }
 
+    fun showProfile(view: View){
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+    }
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.up -> {
