@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,10 +24,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.rcView.layoutManager = LinearLayoutManager(this)
         binding.rcView.adapter = sectionAdapter
-
         binding.btAdd.setOnClickListener {
-            sectionAdapter.addSection(Section("Новая задача"))
+            sectionAdapter.addSection(Section("Новая папка"))
         }
+
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.absoluteAdapterPosition
@@ -65,5 +66,12 @@ class MainActivity : AppCompatActivity() {
     fun showProfile(view: View) {
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
+    }
+    fun editSection(view: View){
+        val intent = Intent(this, AddSectionActivity::class.java)
+        startActivity(intent)
+        val name = intent.getStringExtra("name")
+        val textView = findViewById<TextView>(R.id.name)
+        textView.text = name
     }
 }
