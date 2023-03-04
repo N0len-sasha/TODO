@@ -29,5 +29,10 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20sp" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_edit_24"
+            android:background="@color/black"></ImageButton>
 
 </LinearLayout>
