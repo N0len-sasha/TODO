@@ -3,52 +3,67 @@ package com.example.todo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
-import android.widget.PopupMenu
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.MainScreenBinding
+import java.util.*
 
 
-class MainActivity : AppCompatActivity(),PopupMenu.OnMenuItemClickListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainScreenBinding
     private val sectionAdapter = SectionAdapter()
+    private var draggedItemIndex: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_screen)
         binding = MainScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         binding.rcView.layoutManager = LinearLayoutManager(this)
         binding.rcView.adapter = sectionAdapter
 
         binding.btAdd.setOnClickListener {
             sectionAdapter.addSection(Section("Новая задача"))
         }
+        val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.absoluteAdapterPosition
+                sectionAdapter.sections.removeAt(position)
+                sectionAdapter.notifyItemRemoved(position)
+            }
 
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ): Int {
+                return makeMovementFlags(
+                    ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+                    ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT
+                )
+            }
 
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                draggedItemIndex = viewHolder.absoluteAdapterPosition
+                var targetIndex = target.absoluteAdapterPosition
+
+                Collections.swap(sectionAdapter.sections, draggedItemIndex, targetIndex)
+                sectionAdapter.notifyItemMoved(draggedItemIndex, targetIndex)
+
+                return false
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
+        itemTouchHelper.attachToRecyclerView(binding.rcView)
     }
-    public fun showMore(view: View){
-        val popup = PopupMenu(this, view)
-        popup.setOnMenuItemClickListener (this)
-        popup.inflate(R.menu.more_menu)
-        popup.show()
-    }
-
-    fun showProfile(view: View){
+    fun showProfile(view: View) {
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
     }
-    override fun onMenuItemClick(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.up -> {
-//                val currentPosition = sectionAdapter.currentPosition // получаем позицию текущего элемента
-                sectionAdapter.moveSectionUp(3) // перемещаем элемент на одну строку вверх
-            }
-            R.id.down -> sectionAdapter.moveSectionDown(2)
-            R.id.delete -> sectionAdapter.removeSection(1)
-        }
-        return false
-    }
-
 }
