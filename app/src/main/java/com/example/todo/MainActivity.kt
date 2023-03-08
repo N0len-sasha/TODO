@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainScreenBinding.inflate(layoutInflater)
-        setContentView(R.layout.create_task_activity)
+        setContentView(binding.root)
         binding.rcView.layoutManager = LinearLayoutManager(this)
         binding.rcView.adapter = sectionAdapter
         binding.btAdd.setOnClickListener {
@@ -62,16 +61,14 @@ class MainActivity : AppCompatActivity() {
 
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
         itemTouchHelper.attachToRecyclerView(binding.rcView)
+
     }
     fun showProfile(view: View) {
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
     }
     fun editSection(view: View){
-        val intent = Intent(this, AddSectionActivity::class.java)
+        val intent = Intent(this@MainActivity, AddSectionActivity::class.java)
         startActivity(intent)
-        val name = intent.getStringExtra("name")
-        val textView = findViewById<TextView>(R.id.name)
-        textView.text = name
     }
 }

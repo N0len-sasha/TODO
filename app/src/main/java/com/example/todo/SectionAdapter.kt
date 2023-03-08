@@ -1,13 +1,15 @@
 package com.example.todo
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.SectionItemBinding
 
 
 
-class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
+class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>(){
     val sections = mutableListOf<Section>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
@@ -15,8 +17,6 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
         val binding = SectionItemBinding.inflate(view, parent, false)
         return SectionViewHolder(binding)
     }
-
-
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
         val section = sections[position]
         holder.bind(section)
@@ -35,6 +35,5 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() {
             binding.name.text= section.section_name
         }
     }
-
 
 }
