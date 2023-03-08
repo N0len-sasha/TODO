@@ -54,13 +54,13 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/ent_pas"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_box"
             android:fontFamily="@font/main_font"
             android:gravity="center"
-            android:hint="login"
+            android:hint="******************"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
@@ -91,13 +91,13 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/ent_log"
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_box"
             android:fontFamily="@font/main_font"
             android:gravity="center"
-            android:hint="login"
+            android:hint="******************"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/white"

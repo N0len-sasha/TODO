@@ -13,14 +13,20 @@ class ProfileActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ProfileActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.password.isEnabled = false
+        binding.login.isEnabled = false
         binding.edit.setOnClickListener{
             if (binding.confirm.visibility == View.GONE) {
                 binding.confirm.visibility = View.VISIBLE
+                binding.password.isEnabled = true
+                binding.login.isEnabled = true
             }
         }
         binding.confirm.setOnClickListener {
             if (binding.confirm.visibility == View.VISIBLE){
                 binding.confirm.visibility = View.GONE
+                binding.password.isEnabled = false
+                binding.login.isEnabled = false
             }
         }
 
