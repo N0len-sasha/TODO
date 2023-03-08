@@ -28,7 +28,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/enter_password"
+            android:id="@+id/Login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
@@ -74,26 +74,20 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/confirm"
+        android:id="@+id/Enter"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/main_font"
-        android:text="confirm"
-        app:layout_constraintTop_toBottomOf="@+id/password_layout" />
-
-    <Button
-        android:id="@+id/register_now"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/main_font"
-        android:onClick="viewWindow"
         android:text="register now"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/Check"
-        app:layout_constraintTop_toBottomOf="@+id/confirm"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_layout"
+        app:layout_constraintVertical_bias="0.502" />
 
     <TextView
         android:id="@+id/Check"

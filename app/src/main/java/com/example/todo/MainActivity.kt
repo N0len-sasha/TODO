@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainScreenBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.create_task_activity)
         binding.rcView.layoutManager = LinearLayoutManager(this)
         binding.rcView.adapter = sectionAdapter
         binding.btAdd.setOnClickListener {
