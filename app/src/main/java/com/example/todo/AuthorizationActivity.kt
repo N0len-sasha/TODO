@@ -23,12 +23,14 @@ class AuthorizationActivity : AppCompatActivity() {
             val clogin: String = "1"
             val cpassword: String = "1"
             val nothing: String = ""
+            val intent = Intent(this, MainActivity::class.java)
             val login = binding.enterLogin
             val password = binding.enterPassword
             val check = binding.Check
             if ((login.text.toString() == clogin) && (password.text.toString() == cpassword)) {
                 check.setText("«Верно»")
                 check.setTextColor(Color.parseColor("#adff2f"))
+                startActivity(intent)
             } else {
                 login.setText(nothing)
                 password.setText(nothing)
