@@ -7,86 +7,99 @@
     android:background="@color/black">
 
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="361dp"
+        android:layout_height="394dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <Button
         android:id="@+id/confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="70dp"
         android:layout_weight="1"
-        android:text="confirm"
         android:fontFamily="@font/main_font"
+        android:text="confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:fontFamily="@font/main_font"
             android:gravity="center"
-            android:text="enter\\your\\new_password:"
+            android:text="r\\login:"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/entered_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/reg_login"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:ems="10"
             android:fontFamily="@font/main_font"
-            android:gravity="center"
-            android:hint="enter password"
+            android:hint="enter your new login"
+            android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="14dp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="93dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:fontFamily="@font/main_font"
             android:gravity="center"
-            android:text="enter\\your\\new_login:"
+            android:text="r\\password:"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/entered_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/reg_password"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:ems="10"
             android:fontFamily="@font/main_font"
-            android:gravity="center"
-            android:hint="enter login"
+            android:hint="enter your new password"
+            android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="14dp" />
-
+            android:textSize="14sp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
