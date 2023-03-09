@@ -36,5 +36,9 @@ class AuthorizationActivity : AppCompatActivity() {
                 check.setTextColor(Color.parseColor("#960018"))
             }
         }
+        binding.registerNow.setOnClickListener {
+            val intent = Intent(this, RegistrationActivity::class.java)
+            startActivity(intent)
+        }
         }
 }
