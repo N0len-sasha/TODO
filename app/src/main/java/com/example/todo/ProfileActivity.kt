@@ -1,10 +1,12 @@
 package com.example.todo
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.todo.databinding.ProfileActivityBinding
+import com.google.firebase.auth.FirebaseAuth
 
 
 class ProfileActivity : AppCompatActivity(){
@@ -29,6 +31,10 @@ class ProfileActivity : AppCompatActivity(){
                 binding.login.isEnabled = false
             }
         }
-
+        binding.logOut.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, AuthorizationActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
