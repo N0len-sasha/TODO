@@ -30,9 +30,10 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>(){
     }
 
 
+
     inner class SectionViewHolder(private val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(section: Section){
-            binding.name.text= section.section_name
+            binding.name.text= section.name
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,7 +69,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun editSection(view: View){
-        val intent = Intent(this@MainActivity, AddSectionActivity::class.java)
+        val intent = Intent(this, AddSectionActivity::class.java)
         startActivity(intent)
     }
+
 }

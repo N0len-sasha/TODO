@@ -16,8 +16,9 @@ class AddSectionActivity : AppCompatActivity() {
         binding = AddSectionActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.done.setOnClickListener {
+            val name = binding.editName.text.toString()
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("name", binding.editName.text.toString())
+            intent.putExtra("name", name)
             startActivity(intent)
         }
     }
