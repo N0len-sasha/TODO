@@ -13,7 +13,7 @@ import com.example.todo.R
 import com.example.todo.databinding.AuthorizationActivityBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class AuthorizationFragment : Fragment() {
+class AuthorizationFragmentView : Fragment() {
     private lateinit var binding: AuthorizationActivityBinding
     private lateinit var auth: FirebaseAuth
 

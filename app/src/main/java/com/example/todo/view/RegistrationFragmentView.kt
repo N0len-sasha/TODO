@@ -12,7 +12,7 @@ import com.example.todo.databinding.RegistrationActivityBinding
 import com.google.firebase.auth.FirebaseAuth
 
 
-class RegistrationFragment : Fragment() {
+class RegistrationFragmentView : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: RegistrationActivityBinding
     public override fun onStart() {

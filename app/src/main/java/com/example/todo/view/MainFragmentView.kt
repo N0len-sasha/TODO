@@ -14,7 +14,7 @@ import com.example.todo.databinding.MainScreenBinding
 import java.util.*
 
 
-class MainFragment : Fragment() {
+class MainFragmentView : Fragment() {
     private lateinit var binding: MainScreenBinding
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0
