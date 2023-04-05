@@ -22,6 +22,7 @@ class AddSectionFragmentView : Fragment() {
         val provider = ViewModelProvider(this)
         viewModel = provider[ProfileFragmentViewModel::class.java]
         binding = AddSectionActivityBinding.inflate(inflater, container, false)
+
         binding.done.setOnClickListener {
             val name = binding.editName.text.toString()
             findNavController().navigate(R.id.action_addSectionFragment_to_mainFragment)

@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 class RegistrationFragmentView : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: RegistrationActivityBinding
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
@@ -38,12 +38,15 @@ class RegistrationFragmentView : Fragment() {
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful){
                         findNavController().navigate(R.id.action_registrationFragment2_to_authorizationFragment2)
-                    }else{
+                    }
+                    else{
                         Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
-            } else
+            }
+            else {
                 Toast.makeText(activity, "Empty fields are prohibited", Toast.LENGTH_SHORT).show()
+            }
         }
         binding.logIn.setOnClickListener {
             findNavController().navigate(R.id.action_registrationFragment2_to_authorizationFragment2)

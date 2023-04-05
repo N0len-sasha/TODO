@@ -52,7 +52,8 @@ class AuthorizationFragmentView : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
-                        } else {
+                        }
+                        else {
                             Toast.makeText(
                                 activity, "Authentication failed",
                                 Toast.LENGTH_SHORT
