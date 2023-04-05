@@ -9,7 +9,7 @@ import com.example.todo.databinding.AddSectionActivityBinding
 import com.example.todo.databinding.SectionItemBinding
 
 lateinit var binding: AddSectionActivityBinding
-
+/*
 class AddSectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,9 +17,9 @@ class AddSectionActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.done.setOnClickListener {
             val name = binding.editName.text.toString()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ..MainActivity::class.java)
             intent.putExtra("name", name)
             startActivity(intent)
         }
     }
-}
+} */

@@ -33,7 +33,7 @@ class ProfileActivity : AppCompatActivity(){
         }
         binding.logOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, AuthorizationActivity::class.java)
+            val intent = Intent(this, AuthorizationFragment::class.java)
             startActivity(intent)
         }
     }
