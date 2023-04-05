@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.todo.R
 import com.example.todo.databinding.ProfileActivityBinding
 import com.example.todo.viewModel.ProfileFragmentViewModel
-import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragmentView : Fragment() {
     lateinit var binding: ProfileActivityBinding
@@ -26,7 +25,7 @@ class ProfileFragmentView : Fragment() {
         viewModel = provider[ProfileFragmentViewModel::class.java]
 
         binding.edit.setOnClickListener{
-            viewModel.profileLogOut(binding)
+            viewModel.profileEdit(binding)
         }
 
         binding.confirm.setOnClickListener {
@@ -34,7 +33,7 @@ class ProfileFragmentView : Fragment() {
         }
 
         binding.logOut.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+            viewModel.profileLogOut(binding)
             findNavController().navigate(R.id.action_profileFragment_to_authorizationFragment2)
         }
         return binding.root
