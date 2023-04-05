@@ -75,7 +75,7 @@ class MainFragment : Fragment() {
     }
 
     fun editSection(view: View){
-        findNavController().navigate(R.id.action_mainFragment_to_addSectionActivity)
+        findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
     }
     // переделать под setonClickListener
 }

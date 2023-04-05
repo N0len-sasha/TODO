@@ -13,17 +13,17 @@
             android:id="@+id/action_mainFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_addSectionActivity"
-            app:destination="@id/addSectionActivity" />
+            android:id="@+id/action_mainFragment_to_addSectionFragment"
+            app:destination="@id/addSectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.todo.ProfileFragment"
-        android:label="ProfileFragment" />
-    <activity
-        android:id="@+id/addSectionActivity"
-        android:name="com.example.todo.AddSectionFragment"
-        android:label="AddSectionActivity" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_authorizationFragment2"
+            app:destination="@id/authorizationFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/registrationFragment2"
         android:name="com.example.todo.RegistrationFragment"
@@ -46,5 +46,13 @@
         <action
             android:id="@+id/action_authorizationFragment2_to_registrationFragment2"
             app:destination="@id/registrationFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSectionFragment"
+        android:name="com.example.todo.AddSectionFragment"
+        android:label="AddSectionFragment" >
+        <action
+            android:id="@+id/action_addSectionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

@@ -29,7 +29,6 @@ class AuthorizationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        super.onCreate(savedInstanceState)
         binding = AuthorizationActivityBinding.inflate(inflater, container, false)
 
         auth = FirebaseAuth.getInstance()
@@ -52,7 +51,8 @@ class AuthorizationFragment : Fragment() {
                         Toast.makeText(requireContext(). applicationContext, "Login Successful",
                             Toast.LENGTH_SHORT).show()
                         findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
-                    } else {
+                    }
+                    else {
                         Toast.makeText(activity, "Authentication failed",
                             Toast.LENGTH_SHORT).show()
                     }
