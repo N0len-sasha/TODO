@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.todo.MainFragment"
+        android:name="com.example.todo.view.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_profileFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.todo.ProfileFragment"
+        android:name="com.example.todo.view.ProfileFragment"
         android:label="ProfileFragment" >
         <action
             android:id="@+id/action_profileFragment_to_authorizationFragment2"
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment2"
-        android:name="com.example.todo.RegistrationFragment"
+        android:name="com.example.todo.view.RegistrationFragment"
         android:label="RegistrationFragment" >
         <action
             android:id="@+id/action_registrationFragment2_to_mainFragment"
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/authorizationFragment2"
-        android:name="com.example.todo.AuthorizationFragment"
+        android:name="com.example.todo.view.AuthorizationFragment"
         android:label="authorization_fragment"
         tools:layout="@layout/authorization_activity" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/addSectionFragment"
-        android:name="com.example.todo.AddSectionFragment"
+        android:name="com.example.todo.view.AddSectionFragment"
         android:label="AddSectionFragment" >
         <action
             android:id="@+id/action_addSectionFragment_to_mainFragment"

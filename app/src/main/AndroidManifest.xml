@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TODO"
         tools:targetApi="30">
-        <activity android:name=".MainAppActivity"
+        <activity android:name=".view.MainAppActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
