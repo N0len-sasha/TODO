@@ -41,22 +41,26 @@ class AuthorizationFragment : Fragment() {
 
             if (TextUtils.isEmpty(email) || (email==null)){
                 Toast.makeText(activity, "Enter Email", Toast.LENGTH_SHORT).show()
-            }
+            } else
             if (TextUtils.isEmpty(password) || (email==null)){
                 Toast.makeText(activity, "Enter Password", Toast.LENGTH_SHORT).show()
+            } else {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(Activity()) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(
+                                requireContext().applicationContext, "Login Successful",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                        } else {
+                            Toast.makeText(
+                                activity, "Authentication failed",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
             }
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(Activity()) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(requireContext(). applicationContext, "Login Successful",
-                            Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
-                    }
-                    else {
-                        Toast.makeText(activity, "Authentication failed",
-                            Toast.LENGTH_SHORT).show()
-                    }
-                }
         }
         binding.registerNow.setOnClickListener {
             findNavController().navigate(R.id.action_authorizationFragment2_to_registrationFragment2)
