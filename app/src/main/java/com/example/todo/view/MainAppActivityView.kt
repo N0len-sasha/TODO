@@ -8,7 +8,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.todo.R
 
 class MainAppActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

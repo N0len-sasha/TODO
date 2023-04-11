@@ -1,18 +1,19 @@
-package com.example.todo
+package com.example.todo.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.todo.R
 import com.example.todo.databinding.ProfileActivityBinding
-import com.example.todo.databinding.RegistrationActivityBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.example.todo.viewModel.ProfileFragmentViewModel
 
-class ProfileFragment : Fragment() {
+class ProfileFragmentView : Fragment() {
     lateinit var binding: ProfileActivityBinding
+    private lateinit var viewModel: ProfileFragmentViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,22 +21,19 @@ class ProfileFragment : Fragment() {
         binding = ProfileActivityBinding.inflate(inflater, container, false)
         binding.password.isEnabled = false
         binding.login.isEnabled = false
+        val provider = ViewModelProvider(this)
+        viewModel = provider[ProfileFragmentViewModel::class.java]
+
         binding.edit.setOnClickListener{
-            if (binding.confirm.visibility == View.GONE) {
-                binding.confirm.visibility = View.VISIBLE
-                binding.password.isEnabled = true
-                binding.login.isEnabled = true
-            }
+            viewModel.profileEdit(binding)
         }
+
         binding.confirm.setOnClickListener {
-            if (binding.confirm.visibility == View.VISIBLE){
-                binding.confirm.visibility = View.GONE
-                binding.password.isEnabled = false
-                binding.login.isEnabled = false
-            }
+            viewModel.checkConfirm(binding)
         }
+
         binding.logOut.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+            viewModel.profileLogOut(binding)
             findNavController().navigate(R.id.action_profileFragment_to_authorizationFragment2)
         }
         return binding.root
