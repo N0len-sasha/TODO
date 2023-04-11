@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:onClick=""
-            android:src="@drawable/baseline_edit_24"></ImageButton>
+            android:onClick="edit"
+            android:src="@drawable/baseline_edit_24"/>
 
 </LinearLayout>

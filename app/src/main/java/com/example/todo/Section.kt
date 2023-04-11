@@ -1,4 +1,4 @@
 package com.example.todo
 
-public class Section(val name: String){
+data class Section(val name: String){
 }
