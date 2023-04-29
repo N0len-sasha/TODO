@@ -14,10 +14,12 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.MainScreenBinding
+import com.example.todo.view.Section
+import com.example.todo.view.SectionAdapter
 import java.util.*
 
 
-class MainFragment : Fragment() {
+class MainFragmentView : Fragment() {
     private lateinit var binding: MainScreenBinding
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0

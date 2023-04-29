@@ -10,7 +10,7 @@ import com.example.todo.databinding.AddSectionActivityBinding
 import com.example.todo.databinding.AuthorizationActivityBinding
 
 
-class AddSectionFragment : Fragment() {
+class AddSectionFragmentView : Fragment() {
     private lateinit var binding: AddSectionActivityBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
