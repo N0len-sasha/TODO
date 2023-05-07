@@ -1,5 +1,6 @@
 package com.example.todo
 
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.text.Layout
@@ -9,13 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.MainScreenBinding
+import com.example.todo.model.DB
+import com.example.todo.model.Folder
+import com.example.todo.model.FolderRepository
 import com.example.todo.view.Section
 import com.example.todo.view.SectionAdapter
+import com.example.todo.viewModel.exampleViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -23,7 +32,7 @@ class MainFragmentView : Fragment() {
     private lateinit var binding: MainScreenBinding
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0
-
+    private lateinit var viewModel: exampleViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,8 +44,11 @@ class MainFragmentView : Fragment() {
         binding.btProfile.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_profileFragment)
         }
+        val provider = ViewModelProvider(this)
+        viewModel = provider[exampleViewModel::class.java]
         binding.btAdd.setOnClickListener {
             sectionAdapter.addSection(Section("Новая папка"))
+            viewModel.addFolder(Folder(0, "Новая  папка"))
         }
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
