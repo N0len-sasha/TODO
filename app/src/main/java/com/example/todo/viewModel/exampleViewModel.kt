@@ -2,6 +2,7 @@ package com.example.todo.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.todo.model.DB
 import com.example.todo.model.Folder
@@ -18,5 +19,9 @@ class exampleViewModel(application: Application) : AndroidViewModel(application)
         viewModelScope.launch(Dispatchers.IO) {
             repository.addFolder(Folder(0, "Новая папка"))
         }
+    }
+
+    fun readFolder(): LiveData<List<Folder>> {
+        return repository.readALLFolder()
     }
 }

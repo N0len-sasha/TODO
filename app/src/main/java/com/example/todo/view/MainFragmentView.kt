@@ -39,15 +39,20 @@ class MainFragmentView : Fragment() {
     ): View {
         binding = MainScreenBinding.inflate(inflater, container, false)
         binding.rcView.layoutManager = LinearLayoutManager(activity)
-        binding.rcView.adapter = sectionAdapter
+        val provider = ViewModelProvider(this)
+        viewModel = provider[exampleViewModel::class.java]
+
+        viewModel.readFolder().observe(viewLifecycleOwner){
+        sectionAdapter.setData(it)
+        }
 
         binding.btProfile.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_profileFragment)
         }
-        val provider = ViewModelProvider(this)
-        viewModel = provider[exampleViewModel::class.java]
+
         binding.btAdd.setOnClickListener {
-            sectionAdapter.addSection(Section("Новая папка"))
+            //sectionAdapter.addSection(Section("Новая папка"))
+            findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
             viewModel.addFolder(Folder(0, "Новая  папка"))
         }
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
@@ -88,8 +93,8 @@ class MainFragmentView : Fragment() {
         return binding.root
     }
 
-    fun editSection(view: View){
-        findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
-    }
+//    fun editSection(view: View){
+//        findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
+//    }
     // переделать под setonClickListener
 }
