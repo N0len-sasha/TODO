@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.UpdateSectionFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +26,7 @@
             android:textSize="20sp"/>
 
         <EditText
-            android:id="@+id/FolderName"
+            android:id="@+id/update_FolderName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="10"
@@ -37,7 +39,7 @@
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/done"
+            android:id="@+id/update_done"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -45,4 +47,5 @@
             app:srcCompat="@drawable/baseline_done_24" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

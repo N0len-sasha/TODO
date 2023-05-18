@@ -15,6 +15,15 @@
         <action
             android:id="@+id/action_mainFragment_to_addSectionFragment"
             app:destination="@id/addSectionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_authorizationFragment22"
+            app:destination="@id/authorizationFragment2" />
+        <action
+            android:id="@+id/action_mainFragment_to_updateSectionFragment"
+            app:destination="@id/updateSectionFragment" />
+        <argument
+            android:name="currentFolder"
+            app:argType="com.example.todo.model.Folder" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -53,6 +62,15 @@
         android:label="AddSectionFragment" >
         <action
             android:id="@+id/action_addSectionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateSectionFragment"
+        android:name="com.example.todo.view.UpdateSectionFragment"
+        android:label="fragment_update_section"
+        tools:layout="@layout/fragment_update_section" >
+        <action
+            android:id="@+id/action_updateSectionFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
