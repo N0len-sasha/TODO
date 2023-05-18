@@ -6,7 +6,8 @@
     android:layout_height="50dp"
     android:layout_marginBottom="10dp"
     android:background="@color/black"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:id="@+id/rowLayout">
 
         <TextView
             android:id="@+id/symbol"
@@ -29,13 +30,5 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20sp" />
-
-        <ImageButton
-            android:id="@+id/edit"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/black"
-            android:onClick="edit"
-            android:src="@drawable/baseline_edit_24"/>
 
 </LinearLayout>

@@ -2,37 +2,39 @@ package com.example.todo.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
+import androidx.fragment.app.ListFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todo.MainFragmentViewDirections
+import com.example.todo.databinding.FragmentUpdateSectionBinding
 import com.example.todo.databinding.SectionItemBinding
+import com.example.todo.model.Folder
 
 
+class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
+    var folders = mutableListOf<Folder>()
+    class FolderViewHolder(val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){}
 
-class SectionAdapter: RecyclerView.Adapter<SectionAdapter.SectionViewHolder>(){
-    val sections = mutableListOf<Section>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FolderViewHolder {
         val view = LayoutInflater.from(parent.context)
         val binding = SectionItemBinding.inflate(view, parent, false)
-        return SectionViewHolder(binding)
+        return FolderViewHolder(binding)
     }
-    override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
-        val section = sections[position]
-        holder.bind(section)
-    }
+    override fun onBindViewHolder(holder: FolderViewHolder, position: Int) {
+        val currentItem = folders[position]
+        holder.binding.name.text = currentItem.nameFolder
 
-    override fun getItemCount() = sections.size
-
-    fun addSection(section: Section){
-        sections.add(section)
-        notifyItemInserted(sections.size - 1)
-    }
-
-
-
-    inner class SectionViewHolder(private val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(section: Section){
-            binding.name.text= section.name
+        holder.binding.rowLayout.setOnClickListener {
+            val action = MainFragmentViewDirections.actionMainFragmentToUpdateSectionFragment(currentItem)
         }
     }
+
+    override fun getItemCount() = folders.size
+
+    fun setData(folder: MutableList<Folder>){
+        this.folders = folder
+        notifyDataSetChanged()
+    }
+
 
 }
