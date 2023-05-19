@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+
 }
 
 android {
@@ -23,13 +25,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    sourceSets {
-        main {
-            java {
-                srcDirs += 'build/generated/source/navigation-args'
-            }
         }
     }
 
@@ -63,5 +58,4 @@ dependencies {
     apply plugin: 'com.android.application'
     apply plugin: 'kotlin-android'
     apply plugin: 'kotlin-parcelize'
-    apply plugin: "androidx.navigation.safeargs"
 }

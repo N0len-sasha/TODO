@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
 import androidx.fragment.app.ListFragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todo.MainFragmentViewDirections
 import com.example.todo.databinding.FragmentUpdateSectionBinding
 import com.example.todo.databinding.SectionItemBinding
 import com.example.todo.model.Folder
@@ -24,9 +23,9 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
         val currentItem = folders[position]
         holder.binding.name.text = currentItem.nameFolder
 
-        holder.binding.rowLayout.setOnClickListener {
-            val action = MainFragmentViewDirections.actionMainFragmentToUpdateSectionFragment(currentItem)
-        }
+//        holder.binding.rowLayout.setOnClickListener {
+//            val action = MainFragmentViewDirections.actionMainFragmentToUpdateSectionFragment(currentItem)
+//        }
     }
 
     override fun getItemCount() = folders.size

@@ -4,7 +4,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'
-        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0"
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5'
+
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:nav_version"
     }
     repositories {
