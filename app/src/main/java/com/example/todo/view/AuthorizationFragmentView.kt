@@ -29,11 +29,8 @@ class AuthorizationFragmentView : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = AuthorizationActivityBinding.inflate(inflater, container, false)
-
         auth = FirebaseAuth.getInstance()
         binding.confirm.setOnClickListener {
-
-
             val email: String = binding.enterLogin.text.toString().trim()
             val password:String = binding.enterPassword.text.toString().trim()
 
@@ -61,7 +58,7 @@ class AuthorizationFragmentView : Fragment() {
                     }
             }
         }
-        binding.registerNow.setOnClickListener {
+        binding.register.setOnClickListener {
             findNavController().navigate(R.id.action_authorizationFragment2_to_registrationFragment2)
         }
         return binding.root
