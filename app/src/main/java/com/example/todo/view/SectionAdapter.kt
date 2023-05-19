@@ -23,9 +23,6 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
         val currentItem = folders[position]
         holder.binding.name.text = currentItem.nameFolder
 
-//        holder.binding.rowLayout.setOnClickListener {
-//            val action = MainFragmentViewDirections.actionMainFragmentToUpdateSectionFragment(currentItem)
-//        }
     }
 
     override fun getItemCount() = folders.size
