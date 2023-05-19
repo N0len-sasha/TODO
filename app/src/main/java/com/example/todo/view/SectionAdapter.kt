@@ -32,5 +32,8 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
         notifyDataSetChanged()
     }
 
+    fun getFolderId(position: Int):Folder {
+        return folders.get(position)
+    }
 
 }

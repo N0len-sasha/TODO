@@ -25,4 +25,10 @@ class FolderViewModel(application: Application) : AndroidViewModel(application) 
             repository.addFolder(Folder(0, folder.nameFolder))
         }
     }
+
+    fun deleteFolder(folder: Folder){
+        viewModelScope.launch ( Dispatchers.IO){
+            repository.deleteFolder(folder)
+        }
+    }
 }

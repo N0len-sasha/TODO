@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -51,9 +53,11 @@ class MainFragmentView : Fragment() {
 
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.absoluteAdapterPosition
-                sectionAdapter.folders.removeAt(position)
-                sectionAdapter.notifyItemRemoved(position)
+//                val position = viewHolder.absoluteAdapterPosition
+//                sectionAdapter.folders.removeAt(position)
+//                sectionAdapter.notifyItemRemoved(position)
+                viewModel.deleteFolder(sectionAdapter.getFolderId(viewHolder.layoutPosition))
+                Toast.makeText(context, "Папка удалена", Toast.LENGTH_LONG).show()
             }
 
             override fun getMovementFlags(

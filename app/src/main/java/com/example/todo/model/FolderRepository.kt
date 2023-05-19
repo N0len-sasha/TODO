@@ -13,4 +13,8 @@ class FolderRepository(private val folderDAOModel:FolderDAOModel) {
     fun readALLFolder(): LiveData<List<Folder>> {
         return folderDAOModel.readAllFolders()
     }
+
+    fun deleteFolder(folder: Folder){
+        folderDAOModel.deleteFolder(folder)
+    }
 }
