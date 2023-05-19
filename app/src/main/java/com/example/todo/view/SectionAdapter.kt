@@ -2,6 +2,7 @@ package com.example.todo.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import androidx.navigation.Navigation.findNavController
 import androidx.fragment.app.ListFragment
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,8 @@ import com.example.todo.model.Folder
 
 class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
     var folders = mutableListOf<Folder>()
-    class FolderViewHolder(val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){}
+    inner class FolderViewHolder(val binding: SectionItemBinding): RecyclerView.ViewHolder(binding.root){
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FolderViewHolder {
         val view = LayoutInflater.from(parent.context)

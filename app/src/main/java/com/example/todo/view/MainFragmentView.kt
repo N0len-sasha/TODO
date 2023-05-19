@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.databinding.MainScreenBinding
 import com.example.todo.databinding.SectionItemBinding
@@ -27,6 +25,11 @@ class MainFragmentView : Fragment() {
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0
     private lateinit var viewModel: FolderViewModel
+
+    companion object{
+        const val REQUEST = 1
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,9 +56,6 @@ class MainFragmentView : Fragment() {
 
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val position = viewHolder.absoluteAdapterPosition
-//                sectionAdapter.folders.removeAt(position)
-//                sectionAdapter.notifyItemRemoved(position)
                 viewModel.deleteFolder(sectionAdapter.getFolderId(viewHolder.layoutPosition))
                 Toast.makeText(context, "Папка удалена", Toast.LENGTH_LONG).show()
             }
