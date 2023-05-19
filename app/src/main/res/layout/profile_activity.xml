@@ -63,7 +63,7 @@
             android:fontFamily="@font/main_font"
             android:gravity="center"
             android:paddingBottom="20dp"
-            android:text="\\profile\\login:"
+            android:text="\\profile\\password:"
             android:textColor="@color/white"
             android:textSize="16sp" />
 

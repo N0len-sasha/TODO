@@ -16,6 +16,9 @@ import com.example.todo.viewModel.FolderViewModel
 
 
 class AddSectionFragmentView : Fragment() {
+
+    private val folder: Folder?=null
+
     private lateinit var mFolderViewModel: FolderViewModel
     private lateinit var binding: AddSectionActivityBinding
     override fun onCreateView(
@@ -31,6 +34,7 @@ class AddSectionFragmentView : Fragment() {
         }
         return binding.root
     }
+
 
     private fun insertDataToDatabase(){
         val name = binding.FolderName.text.toString()

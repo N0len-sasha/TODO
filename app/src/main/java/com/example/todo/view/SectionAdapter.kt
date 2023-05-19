@@ -1,11 +1,16 @@
 package com.example.todo.view
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import androidx.navigation.Navigation.findNavController
 import androidx.fragment.app.ListFragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todo.AddSectionFragmentViewDirections
+import com.example.todo.MainFragmentViewDirections
 import com.example.todo.databinding.FragmentUpdateSectionBinding
 import com.example.todo.databinding.SectionItemBinding
 import com.example.todo.model.Folder
@@ -26,7 +31,6 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
         holder.binding.name.text = currentItem.nameFolder
 
     }
-
     override fun getItemCount() = folders.size
 
     fun setData(folder: MutableList<Folder>){

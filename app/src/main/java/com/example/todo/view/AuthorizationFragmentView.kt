@@ -31,7 +31,6 @@ class AuthorizationFragmentView : Fragment() {
         binding = AuthorizationActivityBinding.inflate(inflater, container, false)
 
         auth = FirebaseAuth.getInstance()
-
         binding.confirm.setOnClickListener {
 
 

@@ -69,8 +69,5 @@
         <action
             android:id="@+id/action_updateSectionFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <argument
-            android:name="currentFolder"
-            app:argType="com.example.todo.model.Folder" />
     </fragment>
 </navigation>

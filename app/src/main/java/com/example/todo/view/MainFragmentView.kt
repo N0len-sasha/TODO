@@ -1,5 +1,6 @@
 package com.example.todo
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -53,6 +55,7 @@ class MainFragmentView : Fragment() {
         binding.btProfile.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_profileFragment)
         }
+
 
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
