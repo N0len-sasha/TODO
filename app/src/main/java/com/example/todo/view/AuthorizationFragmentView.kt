@@ -19,11 +19,15 @@ class AuthorizationFragmentView : Fragment() {
 
     public override fun onStart() {
         super.onStart()
+        val verification = auth.currentUser?.isEmailVerified
         val currentUser = auth.currentUser
-        if(currentUser != null){
-            findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+            if (currentUser != null) {
+                if (verification==true) {
+                    findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                }
+            }
         }
-    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,23 +45,27 @@ class AuthorizationFragmentView : Fragment() {
                 Toast.makeText(activity, "Введите пароль", Toast.LENGTH_SHORT).show()
             }
             else {
-                auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(Activity()) { task ->
-                        if (task.isSuccessful) {
-                            Toast.makeText(
-                                requireContext().applicationContext, "Вы авторизированы",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(Activity()) { task ->
+                            if (task.isSuccessful) {
+                                val verification = auth.currentUser?.isEmailVerified
+                                if (verification == true) {
+                                    Toast.makeText(
+                                        requireContext().applicationContext, "Вы авторизированы",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                                }
+                                else Toast.makeText(context, "Адрес электронной почты не подтвержден", Toast.LENGTH_LONG).show()
+                            } else {
+                                Toast.makeText(
+                                    activity, "Ошибка авторизации",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                        else {
-                            Toast.makeText(
-                                activity, "Ошибка авторизации",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-            }
+                }
+
         }
         binding.forgot.setOnClickListener {
             val email: String = binding.enterLogin.text.toString().trim()
