@@ -35,22 +35,10 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
         val currentItem = folders[position]
         holder.binding.name.text = currentItem.nameFolder
         holder.binding.editFolder.setOnClickListener(){
-            showPopup(holder.binding.editFolder)
         }
     }
     override fun getItemCount() = folders.size
 
-    private fun showPopup(view: View){
-        val popupMenu = PopupMenu(view.context, view)
-        popupMenu.inflate(R.menu.more_menu)
-        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener {item->
-            when(item.itemId){
-                R.id.update -> Toast.makeText(view.context, "Undating", Toast.LENGTH_SHORT).show()
-            }
-            false
-        })
-        popupMenu.show()
-    }
 
     fun setData(folder: MutableList<Folder>){
         this.folders = folder

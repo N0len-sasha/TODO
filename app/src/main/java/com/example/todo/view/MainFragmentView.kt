@@ -52,6 +52,8 @@ class MainFragmentView : Fragment() {
             sectionAdapter.setData(folder as MutableList<Folder>)
         })
 
+        
+
         binding.btAdd.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
         }
