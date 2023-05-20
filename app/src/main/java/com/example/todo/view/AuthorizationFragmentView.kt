@@ -39,7 +39,8 @@ class AuthorizationFragmentView : Fragment() {
             } else
             if (TextUtils.isEmpty(password) || (email==null)){
                 Toast.makeText(activity, "Введите пароль", Toast.LENGTH_SHORT).show()
-            } else {
+            }
+            else {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(Activity()) { task ->
                         if (task.isSuccessful) {

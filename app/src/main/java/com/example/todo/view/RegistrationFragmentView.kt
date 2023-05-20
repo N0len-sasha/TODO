@@ -45,7 +45,11 @@ class RegistrationFragmentView : Fragment() {
                 }
             }
             else {
-                Toast.makeText(activity, "Empty fields are prohibited", Toast.LENGTH_SHORT).show()
+                if (password.isNotEmpty() && email.length <= 6){
+                    Toast.makeText(activity, "Длина пароля должна быть не меньше 6 знаков", Toast.LENGTH_SHORT).show()
+                }else {
+                    Toast.makeText(activity, "Заполните пустые поля", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         binding.logIn.setOnClickListener {
