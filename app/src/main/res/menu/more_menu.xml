@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item-->
+<!--        android:id="@+id/up"-->
+<!--        android:icon="@drawable/baseline_arrow_upward_24"-->
+<!--        android:iconTintMode="src_in"-->
+<!--        android:title="@string/move_up" />-->
+<!--    <item-->
+<!--        android:id="@+id/down"-->
+<!--        android:icon="@drawable/baseline_arrow_downward_24"-->
+<!--        android:iconTintMode="src_in"-->
+<!--        android:title="@string/move_down"/>-->
     <item
-        android:id="@+id/up"
-        android:icon="@drawable/baseline_arrow_upward_24"
-        android:iconTintMode="src_in"
-        android:title="@string/move_up" />
-    <item
-        android:id="@+id/down"
-        android:icon="@drawable/baseline_arrow_downward_24"
-        android:iconTintMode="src_in"
-        android:title="@string/move_down"/>
-    <item
-        android:id="@+id/delete"
+        android:id="@+id/update"
         android:icon="@drawable/baseline_delete_24"
         android:iconTintMode="src_in"
-        android:title="@string/delete" />
+        android:title="@string/update" />
 </menu>

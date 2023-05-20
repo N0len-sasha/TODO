@@ -11,6 +11,7 @@ interface FolderDAOModel {
     @Delete
     fun deleteFolder(folder: Folder)
 
+
     @Update
     fun updateFolder(folder: Folder)
 

@@ -1,6 +1,7 @@
 package com.example.todo
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.example.todo.databinding.MainScreenBinding
 import com.example.todo.databinding.SectionItemBinding
 import com.example.todo.model.Folder
 import com.example.todo.view.SectionAdapter
+import com.example.todo.view.UpdateSectionFragment
 import com.example.todo.viewModel.FolderViewModel
 import java.util.*
 
@@ -27,6 +29,7 @@ class MainFragmentView : Fragment() {
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0
     private lateinit var viewModel: FolderViewModel
+    var arrayList: List<String> = ArrayList()
 
     companion object{
         const val REQUEST = 1
@@ -36,6 +39,7 @@ class MainFragmentView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = MainScreenBinding.inflate(inflater, container, false)
         sectionbinding = SectionItemBinding.inflate(inflater, container, false)
         binding.rcView.layoutManager = LinearLayoutManager(activity)

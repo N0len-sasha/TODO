@@ -18,4 +18,7 @@ class FolderRepository(private val folderDAOModel:FolderDAOModel) {
         folderDAOModel.deleteFolder(folder)
     }
 
+    fun updateFolder(folder: Folder){
+        folderDAOModel.updateFolder(folder)
+    }
 }

@@ -3,6 +3,7 @@ package com.example.todo.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.todo.model.DataBase
 import com.example.todo.model.Folder
@@ -18,6 +19,7 @@ class FolderViewModel(application: Application) : AndroidViewModel(application) 
         val folderDao = DataBase.getDatabase(application).folderDAOModel()
         repository = FolderRepository(folderDao)
         readAllData = repository.readAllData
+
     }
 
     fun addFolder(folder: Folder) {
@@ -29,6 +31,12 @@ class FolderViewModel(application: Application) : AndroidViewModel(application) 
     fun deleteFolder(folder: Folder){
         viewModelScope.launch ( Dispatchers.IO){
             repository.deleteFolder(folder)
+        }
+    }
+
+    fun updateFolder(folder: Folder){
+        viewModelScope.launch ( Dispatchers.IO){
+            repository.updateFolder(folder)
         }
     }
 }

@@ -21,6 +21,10 @@ class AddSectionFragmentView : Fragment() {
 
     private lateinit var mFolderViewModel: FolderViewModel
     private lateinit var binding: AddSectionActivityBinding
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
