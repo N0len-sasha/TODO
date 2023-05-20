@@ -34,8 +34,8 @@ class SectionAdapter: RecyclerView.Adapter<SectionAdapter.FolderViewHolder>(){
     override fun onBindViewHolder(holder: FolderViewHolder, position: Int) {
         val currentItem = folders[position]
         holder.binding.name.text = currentItem.nameFolder
-        holder.binding.editFolder.setOnClickListener(){
-        }
+//        holder.binding.editFolder.setOnClickListener(){
+//        }
     }
     override fun getItemCount() = folders.size
 

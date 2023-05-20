@@ -34,14 +34,6 @@
             android:src="@drawable/plus"></ImageButton>
 
         <ImageButton
-            android:id="@+id/bt_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/black"
-            android:src="@drawable/home"></ImageButton>
-
-        <ImageButton
             android:id="@+id/bt_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
