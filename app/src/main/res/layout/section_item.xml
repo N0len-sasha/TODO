@@ -25,10 +25,19 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="10"
-            android:gravity="center|left"
             android:fontFamily="@font/main_font"
+            android:gravity="center|left"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20sp" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/editFolder"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="0.4"-->
+<!--            android:scaleY="0.5"-->
+<!--            android:scaleX="0.5"-->
+<!--            app:srcCompat="@drawable/baseline_edit_24" />-->
 
 </LinearLayout>

@@ -15,14 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 class RegistrationFragmentView : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: RegistrationActivityBinding
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            findNavController().navigate(R.id.action_registrationFragment2_to_mainFragment)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +29,13 @@ class RegistrationFragmentView : Fragment() {
             if (email.isNotEmpty() && password.isNotEmpty()){
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful){
+                        auth.currentUser?.sendEmailVerification()
+                            ?.addOnSuccessListener {
+                                Toast.makeText(context, "Пожалуйста подтвердите адрес электронной почты", Toast.LENGTH_LONG).show()
+                            }
+                            ?.addOnFailureListener{
+                                Toast.makeText(context, it.toString(), Toast.LENGTH_LONG).show()
+                            }
                         findNavController().navigate(R.id.action_registrationFragment2_to_authorizationFragment2)
                     }
                     else{
@@ -45,7 +44,11 @@ class RegistrationFragmentView : Fragment() {
                 }
             }
             else {
-                Toast.makeText(activity, "Empty fields are prohibited", Toast.LENGTH_SHORT).show()
+                if (password.isNotEmpty() && email.length <= 6){
+                    Toast.makeText(activity, "Длина пароля должна быть не меньше 6 знаков", Toast.LENGTH_SHORT).show()
+                }else {
+                    Toast.makeText(activity, "Заполните пустые поля", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         binding.logIn.setOnClickListener {

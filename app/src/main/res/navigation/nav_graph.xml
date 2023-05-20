@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/authorizationFragment2">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.todo.MainFragmentView"
-        android:label="MainFragment" >
+        android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -21,14 +21,14 @@
         <action
             android:id="@+id/action_mainFragment_to_updateSectionFragment"
             app:destination="@id/updateSectionFragment" />
-        <argument
-            android:name="currentFolder"
-            app:argType="com.example.todo.model.Folder" />
+        <action
+            android:id="@+id/action_mainFragment_to_createTask"
+            app:destination="@id/createTask" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.todo.view.ProfileFragmentView"
-        android:label="ProfileFragment" >
+        android:label="ProfileFragment">
         <action
             android:id="@+id/action_profileFragment_to_authorizationFragment2"
             app:destination="@id/authorizationFragment2" />
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/registrationFragment2"
         android:name="com.example.todo.view.RegistrationFragmentView"
-        android:label="RegistrationFragment" >
+        android:label="RegistrationFragment">
         <action
             android:id="@+id/action_registrationFragment2_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -48,7 +48,7 @@
         android:id="@+id/authorizationFragment2"
         android:name="com.example.todo.view.AuthorizationFragmentView"
         android:label="authorization_fragment"
-        tools:layout="@layout/authorization_activity" >
+        tools:layout="@layout/authorization_activity">
         <action
             android:id="@+id/action_authorizationFragment2_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/addSectionFragment"
         android:name="com.example.todo.AddSectionFragmentView"
-        android:label="AddSectionFragment" >
+        android:label="AddSectionFragment">
         <action
             android:id="@+id/action_addSectionFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -68,9 +68,17 @@
         android:id="@+id/updateSectionFragment"
         android:name="com.example.todo.view.UpdateSectionFragment"
         android:label="fragment_update_section"
-        tools:layout="@layout/fragment_update_section" >
+        tools:layout="@layout/fragment_update_section">
         <action
             android:id="@+id/action_updateSectionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTask"
+        android:name="com.example.todo.view.CreateTask"
+        android:label="CreateTask" >
+        <action
+            android:id="@+id/action_createTask_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

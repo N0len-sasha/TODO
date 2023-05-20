@@ -7,9 +7,10 @@ import androidx.room.RoomDatabase
 
 //Создаем БД, если = 0
 //Класс, который содержит БД и служит точкой доступа для подключения к данным приложения
-@Database(entities = [Folder::class, Task::class], version = 1, exportSchema = false)
+@Database(entities = [Folder::class, Task::class], version = 2, exportSchema = false)
 abstract class DataBase : RoomDatabase() {
     abstract fun folderDAOModel(): FolderDAOModel
+    abstract fun taskDAOModel(): TaskDAOModel
 
     companion object {
         @Volatile
@@ -17,10 +18,10 @@ abstract class DataBase : RoomDatabase() {
 
         fun getDatabase(context: Context): DataBase {
             val tempInstance = INSTANCE
-            if(tempInstance != null){
+            if (tempInstance != null) {
                 return tempInstance
             }
-            synchronized(this){
+            synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DataBase::class.java,

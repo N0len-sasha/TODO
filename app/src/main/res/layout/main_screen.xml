@@ -14,8 +14,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/Bottom_Buttons"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/Bottom_Buttons"
@@ -35,14 +34,6 @@
             android:src="@drawable/plus"></ImageButton>
 
         <ImageButton
-            android:id="@+id/bt_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/black"
-            android:src="@drawable/home"></ImageButton>
-
-        <ImageButton
             android:id="@+id/bt_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,15 +41,4 @@
             android:backgroundTint="@color/black"
             android:src="@drawable/profile"></ImageButton>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/rcView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rcView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

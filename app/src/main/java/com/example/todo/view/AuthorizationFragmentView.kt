@@ -19,50 +19,65 @@ class AuthorizationFragmentView : Fragment() {
 
     public override fun onStart() {
         super.onStart()
+        val verification = auth.currentUser?.isEmailVerified
         val currentUser = auth.currentUser
-        if(currentUser != null){
-            findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+            if (currentUser != null) {
+                if (verification==true) {
+                    findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                }
+            }
         }
-    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = AuthorizationActivityBinding.inflate(inflater, container, false)
-
         auth = FirebaseAuth.getInstance()
-
         binding.confirm.setOnClickListener {
-
-
             val email: String = binding.enterLogin.text.toString().trim()
             val password:String = binding.enterPassword.text.toString().trim()
 
             if (TextUtils.isEmpty(email) || (email==null)){
-                Toast.makeText(activity, "Enter Email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Введите логин", Toast.LENGTH_SHORT).show()
             } else
             if (TextUtils.isEmpty(password) || (email==null)){
-                Toast.makeText(activity, "Enter Password", Toast.LENGTH_SHORT).show()
-            } else {
-                auth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(Activity()) { task ->
-                        if (task.isSuccessful) {
-                            Toast.makeText(
-                                requireContext().applicationContext, "Login Successful",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                Toast.makeText(activity, "Введите пароль", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(Activity()) { task ->
+                            if (task.isSuccessful) {
+                                val verification = auth.currentUser?.isEmailVerified
+                                if (verification == true) {
+                                    Toast.makeText(
+                                        requireContext().applicationContext, "Вы авторизированы",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
+                                }
+                                else Toast.makeText(context, "Адрес электронной почты не подтвержден", Toast.LENGTH_LONG).show()
+                            } else {
+                                Toast.makeText(
+                                    activity, "Ошибка авторизации",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
-                        else {
-                            Toast.makeText(
-                                activity, "Authentication failed",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
+                }
+
+        }
+        binding.forgot.setOnClickListener {
+            val email: String = binding.enterLogin.text.toString().trim()
+            if (TextUtils.isEmpty(email) || email == null){
+                Toast.makeText(activity, "Пожалуйства, введите почту для восстановления", Toast.LENGTH_LONG).show()
+            }else {
+                auth.sendPasswordResetEmail(email)
+                Toast.makeText(activity, "ссылка для восстановления пароля отправлена " +
+                        "на вашу почту", Toast.LENGTH_LONG).show()
             }
         }
-        binding.registerNow.setOnClickListener {
+        binding.register.setOnClickListener {
             findNavController().navigate(R.id.action_authorizationFragment2_to_registrationFragment2)
         }
         return binding.root

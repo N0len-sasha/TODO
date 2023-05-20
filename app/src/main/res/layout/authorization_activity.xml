@@ -44,12 +44,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/logo">
 
         <TextView
             android:id="@+id/textView"
@@ -83,27 +82,35 @@
         app:layout_constraintTop_toBottomOf="@+id/password_layout" />
 
     <Button
-        android:id="@+id/register_now"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="54dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/main_font"
+        android:text="register now"
+        android:onClick="viewWindow"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/confirm"
+        tools:layout_editor_absoluteX="-16dp" />
+
+    <Button
+        android:id="@+id/forgot"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/main_font"
         android:onClick="viewWindow"
-        android:text="register now"
+        android:text="forgot password"
+        android:textSize="10dp"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/Check"
-        app:layout_constraintTop_toBottomOf="@+id/confirm"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintTop_toBottomOf="@+id/register"
+        tools:layout_editor_absoluteX="-16dp" />
 
-    <TextView
-        android:id="@+id/Check"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"></TextView>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo"
         android:layout_width="305dp"
         android:layout_height="298dp"
         android:layout_marginTop="16dp"

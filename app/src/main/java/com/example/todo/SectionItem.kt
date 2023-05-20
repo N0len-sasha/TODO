@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.todo.databinding.SectionItemBinding
 
-class SectionItem : Fragment(){
+class SectionItem : Fragment() {
     private lateinit var binding: SectionItemBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,6 +18,7 @@ class SectionItem : Fragment(){
         binding = SectionItemBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     fun edit() {
         Log.e("error", "dds")
         findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)

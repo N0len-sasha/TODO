@@ -1,9 +1,7 @@
 package com.example.todo.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,38 +10,38 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.todo.R
-import com.example.todo.databinding.FragmentUpdateSectionBinding
+import com.example.todo.databinding.CreateTaskActivityBinding
 import com.example.todo.model.Task
 import com.example.todo.viewModel.TaskViewModel
 
-class UpdateSectionFragment : Fragment() {
+class CreateTask : Fragment() {
 
-    private lateinit var binding: FragmentUpdateSectionBinding
-    private lateinit var viewModel: TaskViewModel
+    private lateinit var mTaskViewModel: TaskViewModel
 
+    private lateinit var binding: CreateTaskActivityBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this)[TaskViewModel::class.java]
-        binding = FragmentUpdateSectionBinding.inflate(inflater, container, false)
+        binding = CreateTaskActivityBinding.inflate(inflater, container, false)
+        mTaskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
         binding.done2.setOnClickListener {
-            updateDataToDatabase()
+            insertDataToDatabase()
         }
         return binding.root
     }
 
-    private fun updateDataToDatabase() {
+    private fun insertDataToDatabase() {
         val name = binding.textView6.text.toString()
         val remind = binding.textView7.text.toString()
         val comment = binding.textView15.text.toString()
         val writeText = binding.textView17.text.toString()
 
         if (inputCheck(name)) {
-            val task = Task(viewModel.id.value!!, name, remind, comment, writeText)
-            viewModel.updateTask(task)
+            val task = Task(0, name, remind, comment, writeText)
+            mTaskViewModel.addTask(task)
             Toast.makeText(requireContext(), "Добавлено!", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_updateSectionFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_createTask_to_mainFragment)
         } else {
             Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_LONG).show()
         }
