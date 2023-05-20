@@ -52,7 +52,7 @@ class MainFragmentView : Fragment() {
             sectionAdapter.setData(folder as MutableList<Folder>)
         })
 
-        
+
 
         binding.btAdd.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
@@ -66,7 +66,7 @@ class MainFragmentView : Fragment() {
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 viewModel.deleteFolder(sectionAdapter.getFolderId(viewHolder.layoutPosition))
-                Toast.makeText(context, "Папка удалена", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Папка удалена", Toast.LENGTH_SHORT).show()
             }
 
             override fun getMovementFlags(

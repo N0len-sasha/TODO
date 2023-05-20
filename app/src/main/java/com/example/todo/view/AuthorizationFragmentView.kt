@@ -35,27 +35,37 @@ class AuthorizationFragmentView : Fragment() {
             val password:String = binding.enterPassword.text.toString().trim()
 
             if (TextUtils.isEmpty(email) || (email==null)){
-                Toast.makeText(activity, "Enter Email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Введите логин", Toast.LENGTH_SHORT).show()
             } else
             if (TextUtils.isEmpty(password) || (email==null)){
-                Toast.makeText(activity, "Enter Password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Введите пароль", Toast.LENGTH_SHORT).show()
             } else {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(Activity()) { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(
-                                requireContext().applicationContext, "Login Successful",
+                                requireContext().applicationContext, "Вы авторизированы",
                                 Toast.LENGTH_SHORT
                             ).show()
                             findNavController().navigate(R.id.action_authorizationFragment2_to_mainFragment)
                         }
                         else {
                             Toast.makeText(
-                                activity, "Authentication failed",
+                                activity, "Ошибка авторизации",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
                     }
+            }
+        }
+        binding.forgot.setOnClickListener {
+            val email: String = binding.enterLogin.text.toString().trim()
+            if (TextUtils.isEmpty(email) || email == null){
+                Toast.makeText(activity, "Пожалуйства, введите почту для восстановления", Toast.LENGTH_LONG).show()
+            }else {
+                auth.sendPasswordResetEmail(email)
+                Toast.makeText(activity, "ссылка для восстановления пароля отправлена " +
+                        "на вашу почту", Toast.LENGTH_LONG).show()
             }
         }
         binding.register.setOnClickListener {
