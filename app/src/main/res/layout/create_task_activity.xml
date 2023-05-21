@@ -20,12 +20,13 @@
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
             android:layout_weight="1"
             android:fontFamily="@font/main_font"
             android:text="//task.name:"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/addTaskName"
@@ -38,7 +39,7 @@
             android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,25 +56,34 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center|left"
             android:fontFamily="@font/main_font"
             android:text="//task.remind_date:"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/addTaskDate"
+        <TextView
+            android:id="@+id/addTaskTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:ems="14"
+            android:fontFamily="@font/main_font"
+            android:text="enter remind time"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="14"
-            android:fontFamily="@font/main_font"
-            android:hint="enter task remind date"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="14sp" />
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/baseline_calendar_month_24" />
     </LinearLayout>
 
     <Button

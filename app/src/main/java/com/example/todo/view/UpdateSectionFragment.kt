@@ -1,5 +1,6 @@
 package com.example.todo.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -39,6 +40,7 @@ class UpdateSectionFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun updateDataToDatabase() {
         val name = binding.textView6.text.toString()
         val remind = binding.textView7.text.toString()

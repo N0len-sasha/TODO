@@ -26,6 +26,7 @@ class SectionAdapter : RecyclerView.Adapter<SectionAdapter.SectionViewHolder>() 
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
         val currentItem = task[position]
         holder.binding.name.text = currentItem.name
+        holder.binding.remindTime.text = currentItem.time
 
     }
 

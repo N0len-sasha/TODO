@@ -32,7 +32,7 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
                 Task(
                     task.idTask,
                     task.name,
-                    task.remind
+                    task.time
                 )
             )
         }

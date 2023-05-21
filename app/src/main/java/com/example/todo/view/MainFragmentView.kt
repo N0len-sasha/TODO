@@ -25,6 +25,7 @@ import java.util.Collections
 
 class MainFragmentView : Fragment(){
     private lateinit var binding: MainScreenBinding
+    private lateinit var recyclerView: RecyclerView.ViewHolder
     private lateinit var sectionbinding: SectionItemBinding
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0
@@ -40,24 +41,17 @@ class MainFragmentView : Fragment(){
         binding.rcView.layoutManager = LinearLayoutManager(activity)
         binding.rcView.adapter = sectionAdapter
 
-        val provider = ViewModelProvider(this)
-
-//        viewModel = ViewModelProvider(this)[TaskViewModel::class.java]
-
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { task ->
             sectionAdapter.setData(task as MutableList<Task>)
         })
 
         binding.btAdd.setOnClickListener {
-            //findNavController().navigate(R.id.action_mainFragment_to_addSectionFragment)
             findNavController().navigate(R.id.action_mainFragment_to_createTask)
         }
 
         binding.btProfile.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_profileFragment)
         }
-//        sectionbinding.butDone.setOnClickListener{
-//        }
 
 
 
@@ -68,11 +62,10 @@ class MainFragmentView : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                viewModel.deleteTask(sectionAdapter.getTaskId(viewHolder.layoutPosition))
-//                Toast.makeText(context, "Папка удалена", Toast.LENGTH_SHORT).show()
+                viewModel.deleteTask(sectionAdapter.getTaskId(viewHolder.layoutPosition))
                 //Смена имени
-                viewModel.id.value = (sectionAdapter.getTaskId(viewHolder.layoutPosition).idTask)
-                findNavController().navigate(R.id.action_mainFragment_to_updateSectionFragment)
+//                viewModel.id.value = (sectionAdapter.getTaskId(viewHolder.layoutPosition).idTask)
+//                findNavController().navigate(R.id.action_mainFragment_to_updateSectionFragment)
 
             }
 
