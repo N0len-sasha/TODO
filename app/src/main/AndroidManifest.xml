@@ -7,10 +7,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo"
-        android:label=""
-        android:supportsRtl="true"
+        android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.TODO"
+        android:label=""
         tools:targetApi="30">
         <activity android:name=".view.MainAppActivity"
             android:exported="true">

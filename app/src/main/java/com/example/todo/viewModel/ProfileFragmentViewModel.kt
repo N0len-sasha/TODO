@@ -28,7 +28,7 @@ class ProfileFragmentViewModel : ViewModel (){
 
     }
 
-    fun profileLogOut(binding: ProfileActivityBinding) {
+    fun profileLogOut() {
         FirebaseAuth.getInstance().signOut()
     }
 

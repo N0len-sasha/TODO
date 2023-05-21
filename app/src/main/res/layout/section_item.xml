@@ -9,35 +9,30 @@
     android:orientation="horizontal"
     android:id="@+id/rowLayout">
 
-        <TextView
-            android:id="@+id/symbol"
+
+
+
+
+
+        <ImageButton
+            android:id="@+id/butDone"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/main_font"
-            android:gravity="center"
-            android:text="#"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:backgroundTint="@color/black"
+            app:srcCompat="@drawable/unchecked" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="10"
             android:fontFamily="@font/main_font"
             android:gravity="center|left"
+            android:layout_weight="40"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="20sp" />
-
-<!--        <ImageView-->
-<!--            android:id="@+id/editFolder"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="0.4"-->
-<!--            android:scaleY="0.5"-->
-<!--            android:scaleX="0.5"-->
-<!--            app:srcCompat="@drawable/baseline_edit_24" />-->
 
 </LinearLayout>

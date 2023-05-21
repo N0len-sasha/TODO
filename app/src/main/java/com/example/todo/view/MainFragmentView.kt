@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -20,23 +23,18 @@ import com.example.todo.viewModel.TaskViewModel
 import java.util.Collections
 
 
-class MainFragmentView : Fragment() {
+class MainFragmentView : Fragment(){
     private lateinit var binding: MainScreenBinding
     private lateinit var sectionbinding: SectionItemBinding
     private val sectionAdapter = SectionAdapter()
     private var draggedItemIndex: Int = 0
-    private lateinit var viewModel: TaskViewModel
-    var arrayList: List<String> = ArrayList()
+    private val viewModel: TaskViewModel by viewModels()
 
-    companion object {
-        const val REQUEST = 1
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-
         binding = MainScreenBinding.inflate(inflater, container, false)
         sectionbinding = SectionItemBinding.inflate(inflater, container, false)
         binding.rcView.layoutManager = LinearLayoutManager(activity)
@@ -44,7 +42,8 @@ class MainFragmentView : Fragment() {
 
         val provider = ViewModelProvider(this)
 
-        viewModel = ViewModelProvider(this)[TaskViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[TaskViewModel::class.java]
+
         viewModel.readAllData.observe(viewLifecycleOwner, Observer { task ->
             sectionAdapter.setData(task as MutableList<Task>)
         })
@@ -57,16 +56,24 @@ class MainFragmentView : Fragment() {
         binding.btProfile.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_profileFragment)
         }
+//        sectionbinding.butDone.setOnClickListener{
+//        }
 
 
+
+        return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val swipeToDeleteCallBack = object : ItemTouchHelper.Callback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                //viewModel.deleteTask(sectionAdapter.getTaskId(viewHolder.layoutPosition))
-                // Смена имени
+//                viewModel.deleteTask(sectionAdapter.getTaskId(viewHolder.layoutPosition))
+//                Toast.makeText(context, "Папка удалена", Toast.LENGTH_SHORT).show()
+                //Смена имени
                 viewModel.id.value = (sectionAdapter.getTaskId(viewHolder.layoutPosition).idTask)
                 findNavController().navigate(R.id.action_mainFragment_to_updateSectionFragment)
-                //
-                Toast.makeText(context, "Папка удалена", Toast.LENGTH_SHORT).show()
+
             }
 
             override fun getMovementFlags(
@@ -96,7 +103,5 @@ class MainFragmentView : Fragment() {
 
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
         itemTouchHelper.attachToRecyclerView(binding.rcView)
-
-        return binding.root
     }
 }

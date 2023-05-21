@@ -40,7 +40,7 @@ class ProfileFragmentView : Fragment() {
         }
 
         binding.logOut.setOnClickListener {
-            viewModel.profileLogOut(binding)
+            viewModel.profileLogOut()
             findNavController().navigate(R.id.action_profileFragment_to_authorizationFragment2)
         }
         return binding.root

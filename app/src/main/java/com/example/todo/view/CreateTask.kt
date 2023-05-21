@@ -25,20 +25,18 @@ class CreateTask : Fragment() {
     ): View? {
         binding = CreateTaskActivityBinding.inflate(inflater, container, false)
         mTaskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
-        binding.done2.setOnClickListener {
+        binding.addTask.setOnClickListener {
             insertDataToDatabase()
         }
         return binding.root
     }
 
     private fun insertDataToDatabase() {
-        val name = binding.textView6.text.toString()
-        val remind = binding.textView7.text.toString()
-        val comment = binding.textView15.text.toString()
-        val writeText = binding.textView17.text.toString()
+        val name = binding.addTaskName.text.toString()
+        val remind = binding.addTaskDate.text.toString()
 
         if (inputCheck(name)) {
-            val task = Task(0, name, remind, comment, writeText)
+            val task = Task(0, name, remind)
             mTaskViewModel.addTask(task)
             Toast.makeText(requireContext(), "Добавлено!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_createTask_to_mainFragment)

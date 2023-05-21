@@ -15,7 +15,10 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<Task>>
     private val repository: TaskRepository
 
-    val id = MutableLiveData<Long>()
+
+    val id : MutableLiveData<Long> by lazy {
+        MutableLiveData<Long>()
+    }
 
     init {
         val taskDao = DataBase.getDatabase(application).taskDAOModel()
@@ -29,9 +32,7 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
                 Task(
                     task.idTask,
                     task.name,
-                    task.remind,
-                    task.comment,
-                    task.writeText
+                    task.remind
                 )
             )
         }
@@ -46,6 +47,9 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
     fun updateTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateTask(task)
+
         }
     }
+
+
 }

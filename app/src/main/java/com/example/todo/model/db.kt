@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 
 //Создаем БД, если = 0
 //Класс, который содержит БД и служит точкой доступа для подключения к данным приложения
-@Database(entities = [Folder::class, Task::class], version = 2, exportSchema = false)
+@Database(entities = [ Task::class], version = 2, exportSchema = false)
 abstract class DataBase : RoomDatabase() {
-    abstract fun folderDAOModel(): FolderDAOModel
+
     abstract fun taskDAOModel(): TaskDAOModel
 
     companion object {
