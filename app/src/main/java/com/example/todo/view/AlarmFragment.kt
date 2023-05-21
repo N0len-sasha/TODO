@@ -1,3 +1,5 @@
+@file:Suppress("SENSELESS_COMPARISON")
+
 package com.example.todo.view
 
 import android.media.Ringtone
